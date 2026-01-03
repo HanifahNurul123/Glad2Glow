@@ -520,7 +520,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
                     <h5 class="pink-text fw-bold">Rp 59.000</h5>
 
-                    <a href="#lips" class="btn btn-pink mt-3">
+                    <a href="#powder" class="btn btn-pink mt-3">
                         Buy Now
                     </a>
                 </div>
