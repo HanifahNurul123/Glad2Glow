@@ -418,14 +418,14 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                 <!-- DESKRIPSI + BUTTON -->
                 <div class="col-md-5">
                     <div class="card card-custom p-4">
-                        <h4 class="pink-text fw-bold">lippp</h4>
+                        <h4 class="pink-text fw-bold">Lips</h4>
                         <p class="mt-2">
                             Lip tint dengan tekstur lembut, ringan,
                             tahan lama dan bikin bibir terlihat fresh
                             sepanjang hari.
                         </p>
 
-                        <h5 class="pink-text fw-bold">Rp 59.000</h5>
+                        <h5 class="pink-text fw-bold">Rp 55.000</h5>
 
                         <a href="#lips" class="btn btn-pink mt-3">
                             Buy Now
@@ -574,11 +574,12 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
             <!-- DESKRIPSI + BUTTON -->
             <div class="col-md-5">
                 <div class="card card-custom p-4">
-                    <h4 class="pink-text fw-bold">lippp</h4>
+                    <h4 class="pink-text fw-bold">Face Wash</h4>
                     <p class="mt-2">
-                        Lip tint dengan tekstur lembut, ringan,
-                        tahan lama dan bikin bibir terlihat fresh
-                        sepanjang hari.
+                        Manfaat utama facial wash Glad2Glow biru (Blueberry Ceramide Low pH) adalah membersihkan
+                        wajah tanpa membuat kering, menjaga & memperkuat skin barrier dengan pH rendah & ceramide,
+                        menenangkan kulit kemerahan/iritasi berkat antioksidan blueberry.
+
                     </p>
 
                     <h5 class="pink-text fw-bold">Rp 59.000</h5>
