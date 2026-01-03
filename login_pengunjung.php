@@ -527,7 +527,7 @@ if (isset($_POST['register'])) {
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" placeholder="Password" required />
                     </div>
-
+                    <input type="submit" name="login" value="Login" class="btn solid" />
                 </form>
 
                 <!-- Register Form -->
