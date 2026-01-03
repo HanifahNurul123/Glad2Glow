@@ -418,11 +418,10 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                 <!-- DESKRIPSI + BUTTON -->
                 <div class="col-md-5">
                     <div class="card card-custom p-4">
-                        <h4 class="pink-text fw-bold">Lips</h4>
+                        <h4 class="pink-text fw-bold">Lip Serum</h4>
                         <p class="mt-2">
-                            Lip tint dengan tekstur lembut, ringan,
-                            tahan lama dan bikin bibir terlihat fresh
-                            sepanjang hari.
+                            melembapkan, menutrisi, dan mencerahkan bibir, mengatasi bibir kering dan pecah-pecah, serta membuatnya lebih lembut, sehat, kenyal,
+                            dan berkilau alami, berkat kandungan seperti Vitamin E, Squalane, dan Shea Butter yang menghidrasi mendalam
                         </p>
 
                         <h5 class="pink-text fw-bold">Rp 55.000</h5>
@@ -574,7 +573,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
             <!-- DESKRIPSI + BUTTON -->
             <div class="col-md-5">
                 <div class="card card-custom p-4">
-                    <h4 class="pink-text fw-bold">Powder</h4>
+                    <h4 class="pink-text fw-bold"> Blurring Powder</h4>
                     <p class="mt-2">
                         memberikan efek blurring instan untuk menyamarkan pori dan noda, mengontrol minyak hingga 8 jam,
                         meratakan warna kulit, serta menutrisi kulit berkat kandungan skincare seperti Vitamin C,
