@@ -293,24 +293,18 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
 
-                            <img src="img/user-default.png"
-                                class="rounded-circle"
-                                width="32"
-                                height="32">
+                            <i class="fa-solid fa-circle-user fs-4 text-pink"></i>
 
                             <span class="fw-semibold text-pink">
                                 <?= htmlspecialchars($dataUser['nama']); ?>
                             </span>
                         </a>
 
+
                         <ul class="dropdown-menu dropdown-menu-end shadow" style="width:260px;">
                             <!-- HEADER PROFILE -->
                             <li class="px-3 py-3 text-center" style="background:#0d6efd; color:white;">
-                                <img src="img/user-default.png"
-                                    class="rounded-circle mb-2"
-                                    width="60"
-                                    height="60">
-
+                                <i class="fa-solid fa-circle-user fa-3x mb-2"></i>
                                 <h6 class="mb-0"><?= htmlspecialchars($dataUser['nama']); ?></h6>
                                 <small>Pengunjung</small>
                             </li>
