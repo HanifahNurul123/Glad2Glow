@@ -574,11 +574,12 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
             <!-- DESKRIPSI + BUTTON -->
             <div class="col-md-5">
                 <div class="card card-custom p-4">
-                    <h4 class="pink-text fw-bold">Face Wash</h4>
+                    <h4 class="pink-text fw-bold">Powder</h4>
                     <p class="mt-2">
-                        Manfaat utama facial wash Glad2Glow biru (Blueberry Ceramide Low pH) adalah membersihkan
-                        wajah tanpa membuat kering, menjaga & memperkuat skin barrier dengan pH rendah & ceramide,
-                        menenangkan kulit kemerahan/iritasi berkat antioksidan blueberry.
+                        memberikan efek blurring instan untuk menyamarkan pori dan noda, mengontrol minyak hingga 8 jam,
+                        meratakan warna kulit, serta menutrisi kulit berkat kandungan skincare seperti Vitamin C,
+                        Centella Asiatica, dan Squalane, memberikan hasil akhir velvet matte yang halus dan tahan lama
+                        tanpa terasa berat atau kering
 
                     </p>
 
