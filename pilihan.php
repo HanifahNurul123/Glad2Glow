@@ -309,7 +309,6 @@ if (isset($_SESSION['id_user'])) {
                     <li><i class="fas fa-check-circle"></i> Belanja Produk Kosmetik</li>
                     <li><i class="fas fa-check-circle"></i> Lihat Katalog Lengkap</li>
                     <li><i class="fas fa-check-circle"></i> Kelola Keranjang Belanja</li>
-                    <li><i class="fas fa-check-circle"></i> Tracking Pesanan</li>
                 </ul>
             </a>
 
@@ -326,7 +325,6 @@ if (isset($_SESSION['id_user'])) {
                 <ul class="features">
                     <li><i class="fas fa-check-circle"></i> Kelola Produk & Stok</li>
                     <li><i class="fas fa-check-circle"></i> Lihat Analytics & Report</li>
-                    <li><i class="fas fa-check-circle"></i> Manajemen Pesanan</li>
                     <li><i class="fas fa-check-circle"></i> Kontrol Penuh Sistem</li>
                 </ul>
             </a>
