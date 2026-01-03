@@ -320,7 +320,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                             </li>
 
                             <li>
-                                <a class="dropdown-item text-danger" href="logout.php">
+                                <a class="dropdown-item text-danger" href="logout_pengunjung.php">
                                     <i class="fa-solid fa-right-from-bracket me-2"></i> Sign out
                                 </a>
                             </li>
