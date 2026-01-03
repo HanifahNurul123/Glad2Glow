@@ -45,9 +45,9 @@ if (isset($_POST['register'])) {
     } else {
         mysqli_query($conn, "
             INSERT INTO admin 
-            (nama_lengkap, email, password)
+            (nama_lengkap, email, password, status_aktif)
             VALUES 
-            ('$nama', '$email', '$password')
+            ('$nama', '$email', '$password', 1)
         ");
 
         echo '<script>alert("Registrasi berhasil! Silakan login."); 

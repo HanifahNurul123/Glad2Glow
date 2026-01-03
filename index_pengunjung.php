@@ -406,7 +406,6 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
 
 
-        <!-- <div class="container my-5"> -->
         <!-- ===== BAGIAN VIDEO + DESKRIPSI ===== -->
         <div class="section mb-5">
             <div class="row align-items-center">
