@@ -387,10 +387,13 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                                     <p class="harga">
                                         Rp <?= number_format($p['harga'], 0, ',', '.'); ?>
                                     </p>
-                                    <a href="tambah_data_pengunjung.php?id=<?= $p['id']; ?>"
-                                        class="btn btn-pink btn-sm">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
+                                    <div class="d-flex justify-content-center align-items-center gap-2">
+                                        <a href="tambah_data_pengunjung.php?id=<?= $p['id']; ?>"
+                                            class="btn btn-pink btn-sm">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                        <small class="text-muted fw-bold">Stok: <?= $p['stok']; ?></small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -439,44 +442,27 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
         <div class="produk-area">
             <div class="row justify-content-center">
-
-
-                <!-- PRODUK 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card produk-card text-center">
-                        <img src="img/lip1.jpeg">
-                        <div class="card-body">
-                            <h5>Lip Serum-Peach Pie</h5>
-                            <p class="harga">Rp 45.000</p>
-                            <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
+                <?php if (empty($lip)): ?>
+                    <p class="text-center text-muted">Produk Lips tidak ditemukan</p>
+                <?php else: ?>
+                    <?php foreach ($lip as $l): ?>
+                        <div class="col-md-4 mb-4">
+                            <div class="card produk-card text-center">
+                                <img src="img/<?= $l['gambar']; ?>">
+                                <div class="card-body">
+                                    <h5><?= $l['name']; ?></h5>
+                                    <p class="harga">Rp <?= number_format($l['harga'], 0, ',', '.'); ?></p>
+                                    <div class="d-flex justify-content-center align-items-center gap-2">
+                                        <a href="tambah_data_pengunjung.php?id=<?= $l['id']; ?>" class="btn btn-pink btn-sm text-decoration-none">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                        <small class="text-muted fw-bold">Stok: <?= $l['stok']; ?></small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- PRODUK 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card produk-card text-center">
-                        <img src="img/lip2.jpeg">
-                        <div class="card-body">
-                            <h5>Lip Serum-Strawberry Glaze</h5>
-                            <p class="harga">Rp 55.000</p>
-                            <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUK 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card produk-card text-center">
-                        <img src="img/lip3.jpeg">
-                        <div class="card-body">
-                            <h5>Lip Serum-Berry Soda</h5>
-                            <p class="harga">Rp 60.000</p>
-                            <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                        </div>
-                    </div>
-                </div>
-
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -486,76 +472,27 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
 
     <div class="row justify-content-center">
-
-        <div class="col-md-3 mb-4">
-            <div class="card produk-card text-center">
-                <img src="img/powder0.jpeg">
-                <div class="card-body">
-                    <h6>Blurring Powder 00</h6>
-                    <p class="pink-text fw-bold">Rp 59.000</p>
-                    <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
+        <?php if (empty($powder)): ?>
+            <p class="text-center text-muted">Produk Powder tidak ditemukan</p>
+        <?php else: ?>
+            <?php foreach ($powder as $p): ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card produk-card text-center">
+                        <img src="img/<?= $p['gambar']; ?>">
+                        <div class="card-body">
+                            <h6><?= $p['name']; ?></h6>
+                            <p class="pink-text fw-bold">Rp <?= number_format($p['harga'], 0, ',', '.'); ?></p>
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <a href="tambah_data_pengunjung.php?id=<?= $p['id']; ?>" class="btn btn-pink btn-sm text-decoration-none">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                                <small class="text-muted fw-bold">Stok: <?= $p['stok']; ?></small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-4">
-            <div class="card produk-card text-center">
-                <img src="img/powder1.jpeg">
-                <div class="card-body">
-                    <h6>Blurring Powder 01</h6>
-                    <p class="pink-text fw-bold">Rp 59.000</p>
-                    <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-4">
-            <div class="card produk-card text-center">
-                <img src="img/powder2.jpeg">
-                <div class="card-body">
-                    <h6>Blurring Powder 02</h6>
-                    <p class="pink-text fw-bold">Rp 59.0000</p>
-                    <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row justify-content-center">
-
-        <div class="col-md-3 mb-4">
-            <div class="card produk-card text-center">
-                <img src="img/powder3.jpeg">
-                <div class="card-body">
-                    <h6>Blurring Powder 03</h6>
-                    <p class="pink-text fw-bold">Rp 59.000</p>
-                    <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-4">
-            <div class="card produk-card text-center">
-                <img src="img/powder4.jpeg">
-                <div class="card-body">
-                    <h6>Blurring Powder 04</h6>
-                    <p class="pink-text fw-bold">Rp 59.000</p>
-                    <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-4">
-            <div class="card produk-card text-center">
-                <img src="img/powder5.jpeg">
-                <div class="card-body">
-                    <h6>Blurring Powder 05</h6>
-                    <p class="pink-text fw-bold">Rp 59.000</p>
-                    <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                </div>
-            </div>
-        </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
 
@@ -596,51 +533,27 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
 
         <div class="row justify-content-center">
-
-            <div class="col-md-3 mb-4">
-                <div class="card produk-card text-center">
-                    <img src="img/cumuk1.jpeg">
-                    <div class="card-body">
-                        <h6>Low PH Gel Cleanser</h6>
-                        <p class="pink-text fw-bold">Rp 59.000</p>
-                        <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
+            <?php if (empty($facewash)): ?>
+                <p class="text-center text-muted">Produk Face Wash tidak ditemukan</p>
+            <?php else: ?>
+                <?php foreach ($facewash as $f): ?>
+                    <div class="col-md-3 mb-4">
+                        <div class="card produk-card text-center">
+                            <img src="img/<?= $f['gambar']; ?>">
+                            <div class="card-body">
+                                <h6><?= $f['name']; ?></h6>
+                                <p class="pink-text fw-bold">Rp <?= number_format($f['harga'], 0, ',', '.'); ?></p>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <a href="tambah_data_pengunjung.php?id=<?= $f['id']; ?>" class="btn btn-pink btn-sm text-decoration-none">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                    <small class="text-muted fw-bold">Stok: <?= $f['stok']; ?></small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <div class="card produk-card text-center">
-                    <img src="img/cumuk2.jpeg">
-                    <div class="card-body">
-                        <h6>Blackhead Cleanser</h6>
-                        <p class="pink-text fw-bold">Rp 59.000</p>
-                        <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <div class="card produk-card text-center">
-                    <img src="img/cumuk3.jpeg">
-                    <div class="card-body">
-                        <h6>Sensitive Calming Cleanser</h6>
-                        <p class="pink-text fw-bold">Rp 59.0000</p>
-                        <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <div class="card produk-card text-center">
-                    <img src="img/cumuk4.jpeg">
-                    <div class="card-body">
-                        <h6>Acne Gel Cleanser</h6>
-                        <p class="pink-text fw-bold">Rp 59.0000</p>
-                        <button class="btn btn-pink btn-sm"><a href="tambah_data_pengunjung.php?id=1" class="text-decoration-none"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                    </div>
-                </div>
-            </div>
-
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
 
