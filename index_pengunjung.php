@@ -475,7 +475,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
             <p class="text-center text-muted">Produk Powder tidak ditemukan</p>
         <?php else: ?>
             <?php foreach ($powder as $p): ?>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-4 mb-4">
                     <div class="card produk-card text-center">
                         <img src="img/<?= $p['gambar']; ?>">
                         <div class="card-body">
