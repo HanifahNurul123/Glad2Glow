@@ -287,50 +287,52 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
                     <a href="#" class="text-decoration-none"><i class="fa-solid fa-user"></i></a>
                     <div class="dropdown">
-    <a class="text-decoration-none dropdown-toggle d-flex align-items-center gap-2"
-       href="#"
-       role="button"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
+                        <a class="text-decoration-none dropdown-toggle d-flex align-items-center gap-2"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
 
-        <img src="img/user-default.png"
-             class="rounded-circle"
-             width="32"
-             height="32">
+                            <img src="img/user-default.png"
+                                class="rounded-circle"
+                                width="32"
+                                height="32">
 
-        <span class="fw-semibold text-pink">
-            <?= htmlspecialchars($dataUser['nama']); ?>
-        </span>
-    </a>
+                            <span class="fw-semibold text-pink">
+                                <?= htmlspecialchars($dataUser['nama']); ?>
+                            </span>
+                        </a>
 
-    <ul class="dropdown-menu dropdown-menu-end shadow" style="width:260px;">
-        <!-- HEADER PROFILE -->
-        <li class="px-3 py-3 text-center" style="background:#0d6efd; color:white;">
-            <img src="img/user-default.png"
-                 class="rounded-circle mb-2"
-                 width="60"
-                 height="60">
+                        <ul class="dropdown-menu dropdown-menu-end shadow" style="width:260px;">
+                            <!-- HEADER PROFILE -->
+                            <li class="px-3 py-3 text-center" style="background:#0d6efd; color:white;">
+                                <img src="img/user-default.png"
+                                    class="rounded-circle mb-2"
+                                    width="60"
+                                    height="60">
 
-            <h6 class="mb-0"><?= $dataUser['nama']; ?></h6>
-            <small><?= ucfirst($dataUser['role']); ?></small>
-        </li>
+                                <h6 class="mb-0"><?= htmlspecialchars($dataUser['nama']); ?></h6>
+                                <small>Pengunjung</small>
+                            </li>
 
-        <!-- MENU -->
-        <li>
-            <a class="dropdown-item" href="profile_pengunjung.php">
-                <i class="fa-solid fa-user me-2"></i> Profile
-            </a>
-        </li>
+                            <!-- MENU -->
+                            <li>
+                                <a class="dropdown-item" href="profile_pengunjung.php">
+                                    <i class="fa-solid fa-user me-2"></i> Profile
+                                </a>
+                            </li>
 
-        <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-        <li>
-            <a class="dropdown-item text-danger" href="logout.php">
-                <i class="fa-solid fa-right-from-bracket me-2"></i> Sign out
-            </a>
-        </li>
-    </ul>
-</div>
+                            <li>
+                                <a class="dropdown-item text-danger" href="logout.php">
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i> Sign out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
                 </div>
             </div>
