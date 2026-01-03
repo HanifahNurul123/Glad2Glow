@@ -285,7 +285,6 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                         <?php endif; ?>
                     </a>
 
-                    <a href="#" class="text-decoration-none"><i class="fa-solid fa-user"></i></a>
                     <div class="dropdown">
                         <a class="text-decoration-none dropdown-toggle d-flex align-items-center gap-2"
                             href="#"
