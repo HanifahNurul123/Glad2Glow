@@ -570,40 +570,43 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
 
 
 
-        <!-- ===== FOOTER ===== -->
-        <footer style="background-color: #fce4ec; padding: 50px 0; margin-top: 50px;">
-            <div class="container">
-                <div class="row">
-                    <!-- Contact Us -->
-                    <div class="col-md-6 mb-4">
-                        <h5 class="fw-bold mb-3" style="color: #333;">Contact Us</h5>
-                        <p class="mb-1" style="color: #666;">customer@glad2glow.id</p>
-                        <h2 class="fw-bold" style="color: #444; font-family: 'Poppins', sans-serif;">Glad2Glow Distributor</h2>
-                    </div>
+    </div><!-- End of inner container -->
+    </div><!-- End of outer container -->
 
-                    <!-- About Us -->
-                    <div class="col-md-6 mb-4">
-                        <h5 class="fw-bold mb-3" style="color: #333;">About Us</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #666;">About Us</a></li>
-                            <li class="mb-2"><a href="#lips" class="text-decoration-none" style="color: #666;">Product Catalog</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #666;">Wholesale Inquiry</a></li>
-                        </ul>
+    <!-- ===== FOOTER ===== -->
+    <footer style="background-color: #fce4ec; padding: 50px 0; margin-top: auto; width: 100%;">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Us -->
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3" style="color: #333;">Contact Us</h5>
+                    <p class="mb-1" style="color: #666;">customer@glad2glow.id</p>
+                    <h2 class="fw-bold" style="color: #444; font-family: 'Poppins', sans-serif;">Glad2Glow Distributor</h2>
+                </div>
 
-                        <div class="d-flex gap-3 mt-3">
-                            <a href="https://www.tiktok.com/@glad2glow.my" target="_blank" style="color: #333; font-size: 1.5rem;">
-                                <i class="fa-brands fa-tiktok"></i>
-                            </a>
-                            <a href="https://www.instagram.com/glad2glow/" target="_blank" style="color: #333; font-size: 1.5rem;">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
+                <!-- About Us -->
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3" style="color: #333;">About Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #666;">About Us</a></li>
+                        <li class="mb-2"><a href="#lips" class="text-decoration-none" style="color: #666;">Product Catalog</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #666;">Wholesale Inquiry</a></li>
+                    </ul>
+
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://www.tiktok.com/@glad2glow.my" target="_blank" style="color: #333; font-size: 1.5rem;">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/glad2glow/" target="_blank" style="color: #333; font-size: 1.5rem;">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
