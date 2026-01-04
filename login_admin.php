@@ -32,29 +32,7 @@ if (isset($_POST['login'])) {
     }
 }
 
-// Handle Register
-if (isset($_POST['register'])) {
-    $nama = $_POST['reg_nama'];
-    $email = $_POST['reg_email'];
-    $password = $_POST['reg_password'];
 
-    // cek email unik
-    $cek = query("SELECT * FROM admin WHERE email='$email'");
-    if ($cek) {
-        echo '<script>alert("Email sudah terdaftar!");</script>';
-    } else {
-        mysqli_query($conn, "
-            INSERT INTO admin 
-            (nama_lengkap, email, password, status_aktif)
-            VALUES 
-            ('$nama', '$email', '$password', 1)
-        ");
-
-        echo '<script>alert("Registrasi berhasil! Silakan login."); 
-              setTimeout(function(){ location.reload(); }, 500);
-              </script>';
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -87,31 +65,20 @@ if (isset($_POST['register'])) {
             position: relative;
             width: 100%;
             max-width: 850px;
-            min-height: 550px;
+            min-height: 500px;
             background: #fff;
             border-radius: 30px;
             box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .forms-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .signin-signup {
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            left: 75%;
             width: 50%;
-            transition: 1s 0.7s ease-in-out;
-            display: grid;
-            grid-template-columns: 1fr;
             z-index: 5;
+            padding: 0 2rem;
         }
 
         form {
@@ -119,20 +86,8 @@ if (isset($_POST['register'])) {
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            padding: 0 5rem;
-            transition: all 0.2s 0.7s;
-            overflow: hidden;
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-        }
-
-        form.sign-up-form {
-            opacity: 0;
-            z-index: 1;
-        }
-
-        form.sign-in-form {
-            z-index: 2;
+            padding: 0 1rem;
+            width: 100%;
         }
 
         .title {
@@ -149,7 +104,6 @@ if (isset($_POST['register'])) {
         }
 
         .input-field {
-            max-width: 380px;
             width: 100%;
             background-color: #f0f0f0;
             margin: 10px 0;
@@ -159,19 +113,12 @@ if (isset($_POST['register'])) {
             grid-template-columns: 15% 85%;
             padding: 0 0.4rem;
             position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .input-field:focus-within {
-            background-color: #e8e8e8;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .input-field i {
             text-align: center;
             line-height: 55px;
             color: #acacac;
-            transition: 0.5s;
             font-size: 1.1rem;
         }
 
@@ -189,12 +136,6 @@ if (isset($_POST['register'])) {
         .input-field input::placeholder {
             color: #aaa;
             font-weight: 400;
-        }
-
-        .social-text {
-            padding: 0.7rem 0;
-            font-size: 0.85rem;
-            color: #666;
         }
 
         .admin-badge {
@@ -233,124 +174,22 @@ if (isset($_POST['register'])) {
             box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
         }
 
-        .panels-container {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .container:before {
-            content: "";
-            position: absolute;
-            height: 2000px;
-            width: 2000px;
-            top: -10%;
-            right: 48%;
-            transform: translateY(-50%);
-            background-image: linear-gradient(-45deg, #ff6b9d 0%, #ffc3a0 50%, #ff8fab 100%);
-            transition: 1.8s ease-in-out;
-            border-radius: 50%;
-            z-index: 6;
-        }
-
+        /* Image Panel */
         .panel {
+            width: 50%;
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-around;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             z-index: 6;
-        }
-
-        .left-panel {
-            pointer-events: all;
-            padding: 3rem 17% 2rem 12%;
-        }
-
-        .right-panel {
-            pointer-events: none;
-            padding: 3rem 12% 2rem 17%;
-        }
-
-        .panel .content {
-            color: #fff;
-            transition: transform 0.9s ease-in-out;
-            transition-delay: 0.6s;
-        }
-
-        .panel h3 {
-            font-weight: 600;
-            line-height: 1;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .panel p {
-            font-size: 0.95rem;
-            padding: 0.7rem 0;
-            opacity: 0.9;
-        }
-
-        .btn.transparent {
-            margin: 0;
-            background: none;
-            border: 2px solid #fff;
-            width: 130px;
-            height: 41px;
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-
-        .btn.transparent:hover {
-            background: #fff;
-            color: #ff6b9d;
-        }
-
-        .right-panel .image,
-        .right-panel .content {
-            transform: translateX(800px);
-        }
-
-        /* ANIMATION */
-        .container.sign-up-mode:before {
-            transform: translate(100%, -50%);
-            right: 52%;
-        }
-
-        .container.sign-up-mode .left-panel .image,
-        .container.sign-up-mode .left-panel .content {
-            transform: translateX(-800px);
-        }
-
-        .container.sign-up-mode .signin-signup {
-            left: 25%;
-        }
-
-        .container.sign-up-mode form.sign-up-form {
-            opacity: 1;
-            z-index: 2;
-        }
-
-        .container.sign-up-mode form.sign-in-form {
-            opacity: 0;
-            z-index: 1;
-        }
-
-        .container.sign-up-mode .right-panel .image,
-        .container.sign-up-mode .right-panel .content {
-            transform: translateX(0%);
-        }
-
-        .container.sign-up-mode .left-panel {
-            pointer-events: none;
-        }
-
-        .container.sign-up-mode .right-panel {
-            pointer-events: all;
+            background: linear-gradient(-45deg, #ff6b9d 0%, #ffc3a0 50%, #ff8fab 100%);
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-top-left-radius: 30% 50%;
+            border-bottom-left-radius: 30% 50%;
         }
 
         .image {
@@ -367,108 +206,37 @@ if (isset($_POST['register'])) {
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
 
+        .social-text {
+            padding: 0.7rem 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
         /* Responsive */
         @media (max-width: 870px) {
             .container {
+                flex-direction: column;
                 min-height: 800px;
-                height: 100vh;
             }
 
-            .signin-signup {
+            .forms-container {
                 width: 100%;
-                top: 95%;
-                transform: translate(-50%, -100%);
-                transition: 1s 0.8s ease-in-out;
-            }
-
-            .signin-signup,
-            .container.sign-up-mode .signin-signup {
-                left: 50%;
-            }
-
-            .panels-container {
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 2fr 1fr;
+                padding-top: 50px;
             }
 
             .panel {
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-                padding: 2.5rem 8%;
-                grid-column: 1 / 2;
+                width: 100%;
+                height: 40%;
+                top: auto;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+                border-top-left-radius: 50% 20%;
+                border-top-right-radius: 50% 20%;
             }
 
-            .right-panel {
-                grid-row: 3 / 4;
-            }
-
-            .left-panel {
-                grid-row: 1 / 2;
-            }
-
-            .image {
-                width: 200px;
-                transition: transform 0.9s ease-in-out;
-                transition-delay: 0.6s;
-            }
-
-            .panel .content {
-                padding-right: 15%;
-                transition: transform 0.9s ease-in-out;
-                transition-delay: 0.8s;
-            }
-
-            .panel h3 {
-                font-size: 1.2rem;
-            }
-
-            .panel p {
-                font-size: 0.7rem;
-                padding: 0.5rem 0;
-            }
-
-            .btn.transparent {
-                width: 110px;
-                height: 35px;
-                font-size: 0.7rem;
-            }
-
-            .container:before {
-                width: 1500px;
-                height: 1500px;
-                transform: translateX(-50%);
-                left: 30%;
-                bottom: 68%;
-                right: initial;
-                top: initial;
-                transition: 2s ease-in-out;
-            }
-
-            .container.sign-up-mode:before {
-                transform: translate(-50%, 100%);
-                bottom: 32%;
-                right: initial;
-            }
-
-            .container.sign-up-mode .left-panel .image,
-            .container.sign-up-mode .left-panel .content {
-                transform: translateY(-300px);
-            }
-
-            .container.sign-up-mode .right-panel .image,
-            .container.sign-up-mode .right-panel .content {
-                transform: translateY(0px);
-            }
-
-            .right-panel .image,
-            .right-panel .content {
-                transform: translateY(300px);
-            }
-
-            .container.sign-up-mode .signin-signup {
-                top: 5%;
-                transform: translate(-50%, 0);
+            .image img {
+                max-width: 200px;
             }
         }
 
@@ -504,99 +272,35 @@ if (isset($_POST['register'])) {
 
 <body>
     <div class="container">
+        <!-- Login Form Container -->
         <div class="forms-container">
-            <div class="signin-signup">
-                <!-- Login Form -->
-                <form action="" method="POST" class="sign-in-form">
-                    <span class="admin-badge">
-                        <i class="fas fa-shield-halved"></i>
-                        Admin Portal
-                    </span>
-                    <h2 class="title">Login Admin</h2>
-                    <p class="subtitle">Glad2Glow Management System</p>
-                    <div class="input-field">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" name="email" placeholder="Email Admin" required />
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password" required />
-                    </div>
-                    <input type="submit" name="login" value="Login" class="btn solid" />
-                    <p class="social-text">Akses terbatas untuk administrator</p>
-                </form>
-
-                <!-- Register Form -->
-                <form action="" method="POST" class="sign-up-form">
-                    <span class="admin-badge">
-                        <i class="fas fa-user-plus"></i>
-                        Register Admin
-                    </span>
-                    <h2 class="title">Daftar Admin</h2>
-                    <p class="subtitle">Buat akun administrator baru</p>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="reg_nama" placeholder="Nama Lengkap" required />
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" name="reg_email" placeholder="Email" required />
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" name="reg_password" placeholder="Password" required />
-                    </div>
-                    <input type="submit" name="register" class="btn" value="Register" />
-                    <p class="social-text">Status: Super Admin</p>
-                </form>
-            </div>
+            <form action="" method="POST" class="sign-in-form">
+                <span class="admin-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    Admin Portal
+                </span>
+                <h2 class="title">Login Admin</h2>
+                <p class="subtitle">Glad2Glow Management System</p>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email Admin" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required />
+                </div>
+                <input type="submit" name="login" value="Login" class="btn solid" />
+                <p class="social-text">Akses terbatas untuk administrator</p>
+            </form>
         </div>
 
-        <div class="panels-container">
-            <div class="panel left-panel">
-                <div class="content">
-                    <h3>Admin Baru?</h3>
-                    <p>
-                        Daftar sebagai administrator untuk mengelola produk kosmetik dan sistem Glad2Glow.
-                    </p>
-                    <button class="btn transparent" id="sign-up-btn">
-                        Register
-                    </button>
-                </div>
-                <div class="image">
-                    <img src="img/admin.jpeg" alt="Admin Dashboard">
-                </div>
-            </div>
-            <div class="panel right-panel">
-                <div class="content">
-                    <h3>Sudah Terdaftar?</h3>
-                    <p>
-                        Masuk ke dashboard admin untuk mengelola produk, pesanan, dan data pelanggan.
-                    </p>
-                    <button class="btn transparent" id="sign-in-btn">
-                        Login
-                    </button>
-                </div>
-                <div class="image">
-                    <img src="img/admin.jpeg" alt="Admin Management">
-                </div>
+        <!-- Image Panel -->
+        <div class="panel">
+            <div class="image">
+                <img src="img/admin.jpeg" alt="Admin Dashboard">
             </div>
         </div>
     </div>
-
-    <script>
-        const sign_in_btn = document.querySelector("#sign-in-btn");
-        const sign_up_btn = document.querySelector("#sign-up-btn");
-        const container = document.querySelector(".container");
-
-        sign_up_btn.addEventListener("click", () => {
-            container.classList.add("sign-up-mode");
-        });
-
-        sign_in_btn.addEventListener("click", () => {
-            container.classList.remove("sign-up-mode");
-        });
-    </script>
 </body>
 
 </html>
