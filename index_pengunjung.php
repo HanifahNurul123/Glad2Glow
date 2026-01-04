@@ -73,6 +73,18 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* Sticky Footer & Full Width Fix */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Ensure main content expands */
+        .container.my-5 {
+            flex: 1;
+        }
+
         :root {
             --pink-gelap: #880e4f;
             --pink-medium: #f8bbd0;
