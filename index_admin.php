@@ -37,6 +37,40 @@ if (isset($_POST['simpan'])) {
     exit;
 }
 
+// PROSES UBAH DATA
+if (isset($_POST['update'])) {
+    $id          = $_POST['id_produk'];
+    $id_kategori = $_POST['id_kategori'];
+    $nama        = $_POST['name'];
+    $harga       = $_POST['harga'];
+    $stok        = $_POST['stok'];
+    $gambarLama  = $_POST['gambarLama'];
+
+    // upload gambar baru jika ada
+    $gambar     = $_FILES['gambar']['name'];
+    $tmpGambar  = $_FILES['gambar']['tmp_name'];
+
+    if (!empty($gambar)) {
+        move_uploaded_file($tmpGambar, "img/" . $gambar);
+    } else {
+        $gambar = $gambarLama;
+    }
+
+    mysqli_query($conn, "
+        UPDATE produk 
+        SET 
+            id_kategori = '$id_kategori',
+            name        = '$nama',
+            harga       = '$harga',
+            stok        = '$stok',
+            gambar      = '$gambar'
+        WHERE id = '$id'
+    ");
+
+    header("Location: index_admin.php");
+    exit;
+}
+
 $produk = query("
     SELECT produk.*, kategori.name AS nama_kategori
     FROM produk
@@ -96,9 +130,10 @@ $kategori = query("SELECT * FROM kategori");
                             <img src="img/<?= $p['gambar']; ?>" width="60">
                         </td>
                         <td>
-                            <a href="edit_data_admin.php?id=<?= $p['id']; ?>" class="btn btn-warning btn-sm">
+                            <!-- Tombol Edit Modal -->
+                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $p['id']; ?>">
                                 Edit
-                            </a>
+                            </button>
                             <a href="hapus_data_admin.php?id=<?= $p['id']; ?>"
                                 onclick="return confirm('Yakin hapus data?')"
                                 class="btn btn-danger btn-sm">
@@ -161,6 +196,65 @@ $kategori = query("SELECT * FROM kategori");
             </div>
         </div>
     </div>
+
+    <!-- Modal Ubah Produk (Looping) -->
+    <?php foreach ($produk as $p): ?>
+        <div class="modal fade" id="modalUbah<?= $p['id']; ?>" tabindex="-1" aria-labelledby="modalUbahLabel<?= $p['id']; ?>" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-dark">
+                        <h5 class="modal-title" id="modalUbahLabel<?= $p['id']; ?>">Ubah Produk</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="hidden" name="id_produk" value="<?= $p['id']; ?>">
+                            <input type="hidden" name="gambarLama" value="<?= $p['gambar']; ?>">
+
+                            <div class="mb-3">
+                                <label class="form-label">Nama Produk</label>
+                                <input type="text" name="name" class="form-control" value="<?= $p['name']; ?>" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Kategori</label>
+                                <select name="id_kategori" class="form-control" required>
+                                    <option value="">-- Pilih Kategori --</option>
+                                    <?php foreach ($kategori as $k): ?>
+                                        <option value="<?= $k['id']; ?>" <?= ($k['id'] == $p['id_kategori']) ? 'selected' : ''; ?>>
+                                            <?= $k['name']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Harga</label>
+                                <input type="number" name="harga" class="form-control" value="<?= $p['harga']; ?>" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Stok</label>
+                                <input type="number" name="stok" class="form-control" value="<?= $p['stok']; ?>" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Gambar Produk</label>
+                                <br>
+                                <img src="img/<?= $p['gambar']; ?>" width="100" class="mb-2">
+                                <input type="file" name="gambar" class="form-control">
+                                <small class="text-muted">Biarkan kosong jika tidak ingin mengganti gambar.</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" name="update" class="btn btn-warning">Ubah Produk</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
