@@ -528,6 +528,9 @@ if (isset($_POST['register'])) {
                         <input type="password" name="password" placeholder="Password" required />
                     </div>
                     <input type="submit" name="login" value="Login" class="btn solid" />
+                    <p class="social-text" style="font-size: 0.9rem;">
+                        Belum punya akun? <a href="#" id="sign-up-link" style="color: #ff6b9d; text-decoration: none; font-weight: 600;">Daftar disini</a>
+                    </p>
                 </form>
 
                 <!-- Register Form -->
@@ -586,6 +589,7 @@ if (isset($_POST['register'])) {
         const sign_in_btn = document.querySelector("#sign-in-btn");
         const sign_up_btn = document.querySelector("#sign-up-btn");
         const container = document.querySelector(".container");
+        const sign_up_link = document.querySelector("#sign-up-link");
 
         sign_up_btn.addEventListener("click", () => {
             container.classList.add("sign-up-mode");
@@ -594,6 +598,13 @@ if (isset($_POST['register'])) {
         sign_in_btn.addEventListener("click", () => {
             container.classList.remove("sign-up-mode");
         });
+
+        if (sign_up_link) {
+            sign_up_link.addEventListener("click", (e) => {
+                e.preventDefault();
+                container.classList.add("sign-up-mode");
+            });
+        }
     </script>
 </body>
 
