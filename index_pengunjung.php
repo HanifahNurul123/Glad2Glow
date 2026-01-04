@@ -590,7 +590,6 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #666;">About Us</a></li>
                         <li class="mb-2"><a href="#lips" class="text-decoration-none" style="color: #666;">Product Catalog</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #666;">Wholesale Inquiry</a></li>
                     </ul>
 
                     <div class="d-flex gap-3 mt-3">
