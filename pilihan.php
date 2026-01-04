@@ -1,10 +1,16 @@
 <?php
 session_start();
 include 'function.php';
+
+// ============================================================
+// REDIRECT OTOMATIS
+// ============================================================
+// Jika sudah login sebagai admin, langsung ke dashboard admin
 if (isset($_SESSION['admin'])) {
     header("Location: index_admin.php");
     exit;
 }
+// Jika sudah login sebagai user/pengunjung, langsung ke halaman utama pengunjung
 if (isset($_SESSION['id_user'])) {
     header("Location: index_pengunjung.php");
     exit;
@@ -20,7 +26,6 @@ if (isset($_SESSION['id_user'])) {
     <title>Pilih Role - Glad2Glow</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/pilihan.css">
 </head>
 
@@ -32,7 +37,9 @@ if (isset($_SESSION['id_user'])) {
         </div>
 
         <div class="cards-container">
-            <!-- Customer Card -->
+            <!-- 
+                Kartu Pilihan Untuk CUSTOMER / PENGUNJUNG 
+            -->
             <a href="login_pengunjung.php" class="role-card">
                 <div class="role-badge">💄 Customer Portal</div>
                 <div class="role-icon">
@@ -49,7 +56,9 @@ if (isset($_SESSION['id_user'])) {
                 </ul>
             </a>
 
-            <!-- Admin Card -->
+            <!-- 
+                Kartu Pilihan Untuk ADMIN 
+            -->
             <a href="login_admin.php" class="role-card admin-card">
                 <div class="role-badge">🛡️ Admin Portal</div>
                 <div class="role-icon">
