@@ -68,177 +68,9 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glad2Glow</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Sticky Footer & Full Width Fix */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Ensure main content expands */
-        .container.my-5 {
-            flex: 1;
-        }
-
-        :root {
-            --pink-gelap: #880e4f;
-            --pink-medium: #f8bbd0;
-
-
-
-            --pink-terang: #fce4ec;
-            --teks-pink: #ad1457;
-        }
-
-        /* Header Styles */
-        .top-header {
-            background-color: var(--pink-medium);
-            color: var(--pink-gelap);
-        }
-
-        .navigation-bar {
-            background-color: var(--pink-terang) !important;
-        }
-
-        .nav-link {
-            color: var(--teks-pink) !important;
-        }
-
-        .nav-link:hover {
-            color: var(--pink-gelap) !important;
-        }
-
-        .nav-icons i {
-            color: var(--teks-pink);
-            font-size: 1.2rem;
-        }
-
-        /* Untuk layar Desktop (Layar Lebar) */
-        .banner-img {
-            width: 100%;
-            height: 600px;
-            /* Tinggi di laptop/desktop */
-            object-fit: cover;
-            object-position: center;
-        }
-
-        /* Untuk layar Tablet (Lebar di bawah 992px) */
-        @media (max-width: 992px) {
-            .banner-img {
-                height: 300px;
-                /* Tinggi berkurang sedikit */
-            }
-        }
-
-        /* Untuk layar HP (Lebar di bawah 576px) */
-        @media (max-width: 576px) {
-            .banner-img {
-                height: 200px;
-                /* Tinggi mengecil agar pas di layar HP */
-            }
-        }
-
-        /* Custom Arrows yang Hampir Memenuhi Samping Layar */
-        .custom-control {
-            width: 10% !important;
-            /* Area hover lebar */
-            transition: background-color 0.3s ease;
-        }
-
-        .custom-control:hover {
-            background-color: rgba(248, 187, 208, 0.4);
-            /* Efek pink transparan */
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: invert(1) sepia(1) saturate(5) hue-rotate(300deg);
-            /* Membuat icon panah jadi pink/gelap */
-        }
-
-        body {
-            background-color: #fff5f8;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #d63384;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
-
-        /* AREA PRODUK DI TENGAH */
-        .produk-area {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .produk-card {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .produk-card img {
-            height: 200px;
-            object-fit: cover;
-            border-radius: 20px 20px 0 0;
-            object-fit: cover;
-
-        }
-
-        .produk-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
-        }
-
-        .harga {
-            color: #d63384;
-            font-weight: 600;
-        }
-
-        .btn-pink {
-            background: #d63384;
-            color: white;
-            border-radius: 20px;
-            padding: 6px 18px;
-        }
-
-        .btn-pink:hover {
-            background: #b02a6b;
-            transform: scale(1.05);
-        }
-
-
-        .section {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .pink-text {
-            color: #d63384;
-        }
-
-        .card-custom {
-            border-radius: 20px;
-            box-shadow: 0 6px 18px rgba(199, 85, 170, 0.2);
-            border: none;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .card-custom:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(199, 85, 170, 0.3);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -350,12 +182,12 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
         <div class="carousel-inner">
 
             <div class="carousel-item active">
-                <img src="img/img2.jpg" class="d-block w-100 img-fluid banner-img" alt="Promo 2">
+                <img src="assets/img/img2.jpg" class="d-block w-100 img-fluid banner-img" alt="Promo 2">
 
             </div>
 
             <div class="carousel-item">
-                <img src="img/img1.jpg" class="d-block w-100 img-fluid banner-img" alt="Promo 2">
+                <img src="assets/img/img1.jpg" class="d-block w-100 img-fluid banner-img" alt="Promo 2">
 
             </div>
 
@@ -393,7 +225,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                     <?php foreach ($produk as $p): ?>
                         <div class="col-md-4 mb-4">
                             <div class="card produk-card text-center">
-                                <img src="img/<?= $p['gambar']; ?>" alt="<?= $p['name']; ?>">
+                                <img src="assets/img/<?= $p['gambar']; ?>" alt="<?= $p['name']; ?>">
                                 <div class="card-body">
                                     <h5><?= $p['name']; ?></h5>
                                     <p class="harga">
@@ -425,7 +257,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                 <!-- VIDEO -->
                 <div class="col-md-7">
                     <video width="100%" controls style="border-radius:20px;">
-                        <source src="vidio/vidio1.mp4" type="video/mp4">
+                        <source src="assets/vidio/vidio1.mp4" type="video/mp4">
                     </video>
                 </div>
 
@@ -459,7 +291,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                     <?php foreach ($lip as $l): ?>
                         <div class="col-md-4 mb-4">
                             <div class="card produk-card text-center">
-                                <img src="img/<?= $l['gambar']; ?>">
+                                <img src="assets/img/<?= $l['gambar']; ?>">
                                 <div class="card-body">
                                     <h5><?= $l['name']; ?></h5>
                                     <p class="harga">Rp <?= number_format($l['harga'], 0, ',', '.'); ?></p>
@@ -489,7 +321,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
             <?php foreach ($powder as $p): ?>
                 <div class="col-md-3 mb-4">
                     <div class="card produk-card text-center">
-                        <img src="img/<?= $p['gambar']; ?>">
+                        <img src="assets/img/<?= $p['gambar']; ?>">
                         <div class="card-body">
                             <h6><?= $p['name']; ?></h6>
                             <p class="pink-text fw-bold">Rp <?= number_format($p['harga'], 0, ',', '.'); ?></p>
@@ -514,7 +346,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
             <!-- VIDEO -->
             <div class="col-md-7">
                 <video width="100%" controls style="border-radius:20px;">
-                    <source src="vidio/vidio2.mp4" type="video/mp4">
+                    <source src="assets/vidio/vidio2.mp4" type="video/mp4">
                 </video>
             </div>
 
@@ -550,7 +382,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
                 <?php foreach ($facewash as $f): ?>
                     <div class="col-md-3 mb-4">
                         <div class="card produk-card text-center">
-                            <img src="img/<?= $f['gambar']; ?>">
+                            <img src="assets/img/<?= $f['gambar']; ?>">
                             <div class="card-body">
                                 <h6><?= $f['name']; ?></h6>
                                 <p class="pink-text fw-bold">Rp <?= number_format($f['harga'], 0, ',', '.'); ?></p>
@@ -605,7 +437,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

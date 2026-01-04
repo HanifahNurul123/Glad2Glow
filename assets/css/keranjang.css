@@ -1,0 +1,185 @@
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding-bottom: 100px;
+            /* Space for sticky bar */
+        }
+
+        .navbar-shopee {
+            background: linear-gradient(-180deg, #f53d2d, #f63);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* CARD HEADER (Nama Toko style) */
+        .cart-header {
+            background: white;
+            border-radius: 3px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+            display: flex;
+            align-items: center;
+        }
+
+        /* CARD ITEM */
+        .cart-item {
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-checkbox {
+            margin-right: 15px;
+            transform: scale(1.3);
+            accent-color: #ee4d2d;
+            cursor: pointer;
+        }
+
+        .item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid #e0e0e0;
+            margin-right: 15px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #222;
+            line-height: 1.4;
+        }
+
+        .item-price {
+            color: #ee4d2d;
+            font-weight: 500;
+        }
+
+        /* QUANTITY */
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .qty-btn {
+            border: 1px solid rgba(0, 0, 0, .09);
+            background: transparent;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .qty-input {
+            width: 40px;
+            height: 25px;
+            border: 1px solid rgba(0, 0, 0, .09);
+            border-left: 0;
+            border-right: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* DELETE BUTTON */
+        .btn-delete {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn-delete:hover {
+            color: #ee4d2d;
+        }
+
+        /* STICKY FOOTER */
+        .checkout-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            z-index: 999;
+        }
+
+        .bar-content {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            justify-content: flex-end;
+            /* Align right like Shopee */
+            align-items: center;
+            height: 70px;
+        }
+
+        .select-all-wrapper {
+            margin-right: auto;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .total-section {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .total-label {
+            font-size: 14px;
+            color: #222;
+            margin-right: 10px;
+        }
+
+        .total-price {
+            color: #ee4d2d;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn-checkout {
+            background: #ee4d2d;
+            color: white;
+            border: none;
+            height: 100%;
+            width: 180px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .btn-checkout:hover {
+            background: #d73211;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 50px;
+            color: #888;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }

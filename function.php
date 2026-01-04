@@ -11,7 +11,8 @@ if (!$conn) {
 // ===============================
 // FUNCTION QUERY
 // ===============================
-function query($query) {
+function query($query)
+{
     global $conn;
     $result = mysqli_query($conn, $query);
     $rows = [];
@@ -26,7 +27,8 @@ function query($query) {
 // ===============================
 // LOGIN (ADMIN / USER)
 // ===============================
-function login($username, $password, $role) {
+function login($username, $password, $role)
+{
     global $conn;
 
     if ($role == 'admin') {
@@ -37,7 +39,8 @@ function login($username, $password, $role) {
         $field = 'email';
     }
 
-    $query = mysqli_query($conn,
+    $query = mysqli_query(
+        $conn,
         "SELECT * FROM $table 
          WHERE $field='$username' AND password='$password'"
     );
@@ -48,16 +51,20 @@ function login($username, $password, $role) {
 // ===============================
 // CRUD KATEGORI (ADMIN)
 // ===============================
-function tambahKategori($nama, $deskripsi) {
+function tambahKategori($nama, $deskripsi)
+{
     global $conn;
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "INSERT INTO kategori VALUES(NULL, '$nama', '$deskripsi')"
     );
 }
 
-function hapusKategori($id) {
+function hapusKategori($id)
+{
     global $conn;
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "DELETE FROM kategori WHERE id_kategori='$id'"
     );
 }
@@ -65,7 +72,8 @@ function hapusKategori($id) {
 // ===============================
 // CRUD PRODUK (ADMIN)
 // ===============================
-function tambahProduk($data, $gambar) {
+function tambahProduk($data, $gambar)
+{
     global $conn;
 
     $nama       = $data['nama_produk'];
@@ -77,9 +85,10 @@ function tambahProduk($data, $gambar) {
     $namaGambar = $gambar['name'];
     $tmp        = $gambar['tmp_name'];
 
-    move_uploaded_file($tmp, "../img/" . $namaGambar);
+    move_uploaded_file($tmp, "../assets/img/" . $namaGambar);
 
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "INSERT INTO produk 
         VALUES(NULL, '$kategori', '$nama', '$harga', '$stok', '$namaGambar', '$deskripsi')"
     );
@@ -88,18 +97,22 @@ function tambahProduk($data, $gambar) {
 // ===============================
 // KERANJANG (CUSTOMER)
 // ===============================
-function tambahKeranjang($id_user) {
+function tambahKeranjang($id_user)
+{
     global $conn;
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "INSERT INTO keranjang VALUES(NULL, '$id_user', NOW())"
     );
 
     return mysqli_insert_id($conn);
 }
 
-function tambahDetailKeranjang($id_keranjang, $id_produk, $jumlah, $subtotal) {
+function tambahDetailKeranjang($id_keranjang, $id_produk, $jumlah, $subtotal)
+{
     global $conn;
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "INSERT INTO detail_keranjang 
         VALUES(NULL, '$id_keranjang', '$id_produk', '$jumlah', '$subtotal')"
     );
@@ -108,10 +121,12 @@ function tambahDetailKeranjang($id_keranjang, $id_produk, $jumlah, $subtotal) {
 // ===============================
 // CHECKOUT & PESANAN
 // ===============================
-function buatPesanan($id_user, $total) {
+function buatPesanan($id_user, $total)
+{
     global $conn;
 
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "INSERT INTO pesanan 
         VALUES(NULL, '$id_user', NOW(), '$total', 'Diproses')"
     );
@@ -119,15 +134,18 @@ function buatPesanan($id_user, $total) {
     return mysqli_insert_id($conn);
 }
 
-function detailPesanan($id_pesanan, $id_produk, $jumlah, $subtotal) {
+function detailPesanan($id_pesanan, $id_produk, $jumlah, $subtotal)
+{
     global $conn;
 
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "INSERT INTO detail_pesanan 
         VALUES(NULL, '$id_pesanan', '$id_produk', '$jumlah', '$subtotal')"
     );
 
-    mysqli_query($conn,
+    mysqli_query(
+        $conn,
         "UPDATE produk 
          SET stok = stok - $jumlah 
          WHERE id_produk='$id_produk'"
@@ -136,7 +154,8 @@ function detailPesanan($id_pesanan, $id_produk, $jumlah, $subtotal) {
 
 
 // fungsi untuk mencari data
-function search_data($keyword){
+function search_data($keyword)
+{
     global $conn;
     $keyword = mysqli_real_escape_string($conn, $keyword);
 
@@ -154,8 +173,3 @@ function search_data($keyword){
 
 
 // =============ADMIN=========
-
-
-
-
-?>

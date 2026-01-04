@@ -1,0 +1,165 @@
+        /* Sticky Footer & Full Width Fix */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Ensure main content expands */
+        .container.my-5 {
+            flex: 1;
+        }
+
+        :root {
+            --pink-gelap: #880e4f;
+            --pink-medium: #f8bbd0;
+
+
+
+            --pink-terang: #fce4ec;
+            --teks-pink: #ad1457;
+        }
+
+        /* Header Styles */
+        .top-header {
+            background-color: var(--pink-medium);
+            color: var(--pink-gelap);
+        }
+
+        .navigation-bar {
+            background-color: var(--pink-terang) !important;
+        }
+
+        .nav-link {
+            color: var(--teks-pink) !important;
+        }
+
+        .nav-link:hover {
+            color: var(--pink-gelap) !important;
+        }
+
+        .nav-icons i {
+            color: var(--teks-pink);
+            font-size: 1.2rem;
+        }
+
+        /* Untuk layar Desktop (Layar Lebar) */
+        .banner-img {
+            width: 100%;
+            height: 600px;
+            /* Tinggi di laptop/desktop */
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Untuk layar Tablet (Lebar di bawah 992px) */
+        @media (max-width: 992px) {
+            .banner-img {
+                height: 300px;
+                /* Tinggi berkurang sedikit */
+            }
+        }
+
+        /* Untuk layar HP (Lebar di bawah 576px) */
+        @media (max-width: 576px) {
+            .banner-img {
+                height: 200px;
+                /* Tinggi mengecil agar pas di layar HP */
+            }
+        }
+
+        /* Custom Arrows yang Hampir Memenuhi Samping Layar */
+        .custom-control {
+            width: 10% !important;
+            /* Area hover lebar */
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-control:hover {
+            background-color: rgba(248, 187, 208, 0.4);
+            /* Efek pink transparan */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1) sepia(1) saturate(5) hue-rotate(300deg);
+            /* Membuat icon panah jadi pink/gelap */
+        }
+
+        body {
+            background-color: #fff5f8;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #d63384;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        /* AREA PRODUK DI TENGAH */
+        .produk-area {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .produk-card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .produk-card img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+            object-fit: cover;
+
+        }
+
+        .produk-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
+        }
+
+        .harga {
+            color: #d63384;
+            font-weight: 600;
+        }
+
+        .btn-pink {
+            background: #d63384;
+            color: white;
+            border-radius: 20px;
+            padding: 6px 18px;
+        }
+
+        .btn-pink:hover {
+            background: #b02a6b;
+            transform: scale(1.05);
+        }
+
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .pink-text {
+            color: #d63384;
+        }
+
+        .card-custom {
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(199, 85, 170, 0.2);
+            border: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(199, 85, 170, 0.3);
+        }

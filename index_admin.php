@@ -20,7 +20,7 @@ if (isset($_POST['simpan'])) {
 
     // Cek jika ada gambar yang diupload
     if (!empty($gambar)) {
-        move_uploaded_file($tmpGambar, "img/" . $gambar);
+        move_uploaded_file($tmpGambar, "assets/img/" . $gambar);
     } else {
         $gambar = ""; // Atur default jika tidak ada gambar (opsional)
     }
@@ -51,7 +51,7 @@ if (isset($_POST['update'])) {
     $tmpGambar  = $_FILES['gambar']['tmp_name'];
 
     if (!empty($gambar)) {
-        move_uploaded_file($tmpGambar, "img/" . $gambar);
+        move_uploaded_file($tmpGambar, "assets/img/" . $gambar);
     } else {
         $gambar = $gambarLama;
     }
@@ -87,7 +87,7 @@ $kategori = query("SELECT * FROM kategori");
 <head>
     <meta charset="UTF-8">
     <title>Admin | Data Produk</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -127,7 +127,7 @@ $kategori = query("SELECT * FROM kategori");
                         <td>Rp <?= number_format($p['harga'], 0, ',', '.'); ?></td>
                         <td><?= $p['stok']; ?></td>
                         <td>
-                            <img src="img/<?= $p['gambar']; ?>" width="60">
+                            <img src="assets/img/<?= $p['gambar']; ?>" width="60">
                         </td>
                         <td>
                             <!-- Tombol Edit Modal -->
@@ -241,7 +241,7 @@ $kategori = query("SELECT * FROM kategori");
                             <div class="mb-3">
                                 <label class="form-label">Gambar Produk</label>
                                 <br>
-                                <img src="img/<?= $p['gambar']; ?>" width="100" class="mb-2">
+                                <img src="assets/img/<?= $p['gambar']; ?>" width="100" class="mb-2">
                                 <input type="file" name="gambar" class="form-control">
                                 <small class="text-muted">Biarkan kosong jika tidak ingin mengganti gambar.</small>
                             </div>
@@ -256,7 +256,7 @@ $kategori = query("SELECT * FROM kategori");
         </div>
     <?php endforeach; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
